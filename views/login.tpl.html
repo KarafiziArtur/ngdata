@@ -6,9 +6,9 @@
             <p class="message" ng-show="loginMessage">{{ loginMessage }}</p>
         </div>
         <fieldset>
-            <input type="email" name="email" placeholder="Email" ng-model="rc.user.email" ng-required="true">
+            <input type="email" name="email" placeholder="Email" ng-model="rc.user.email" ng-required="true" value="d.user@gmail.com">
             <p class="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched">Email must be a valid</p>
-            <input type="password" name="password" placeholder="Password" ng-model="rc.user.password" ng-required="true">
+            <input type="password" name="password" placeholder="Password" ng-model="rc.user.password" ng-required="true" value="12345">
             <p class="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Password is required</p>
         </fieldset>
         <button type="submit" class="btn" ng-disabled="myform.$invalid">Login</button>
