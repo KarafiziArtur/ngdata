@@ -7,6 +7,9 @@ app.controller('RegistrationController',
 function RegistrationController(authFactory) {
     var rc = this;
 
+    rc.user.email = 'd.user@gmail.com';
+    rc.user.password = '12345';
+    
     rc.login = function() {
         authFactory.login(rc.user);
     };
