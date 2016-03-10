@@ -1,0 +1,39 @@
+<div class="card meetings cf">
+    <div class="textintro success-page">
+        <div class="user-info">
+            <h2>User info</h2>
+            <p>First name: <span>{{ currentUser.firstname }}</span></p>
+            <p>Last name: <span>{{ currentUser.lastname }}</span></p>
+            <p>Email: <span>{{ currentUser.email }}</span></p>
+            <p>Date of registration: <span>{{ currentUser.date | date:'MMM d, y HH:mm:ss' }}</span></p>
+        </div>
+        <br>
+        <h1>Add a meeting</h1>
+        <p>Type a meeting name and hit +</p>
+    </div>
+
+    <form class="formgroup addmeeting cf" name="addmeeting" ng-submit="mc.addMeeting()" novalidate>
+        <div class="inputwrapper">
+            <input type="text" name="meetingname" placeholder="Meeting name" ng-model="mc.meetingname" ng-required="true">
+        </div>
+
+        <button class="btn" type="submit" ng-disabled="addmeeting.$invalid">+</button>
+    </form>
+
+    <h2>Your meetings</h2>
+    <div class="meeting" ng-repeat="(key, meeting) in mc.meetings">
+        <button class="btn btn-delete tooltip" ng-click="mc.deleteMeeting(key)">
+            <span>Delete this meeting</span>
+        </button>
+
+        <a ui-sref="checkins({ uId: currentUser.regUser, mId: meeting.$id })" class="btn btn-checkin tooltip">
+            <span>Go to check-in URL</span>
+        </a>
+
+        <a ui-sref="checkinslist({ uId: currentUser.regUser, mId: meeting.$id, checkinsList: checkins })" class="btn btn-list tooltip">
+            <span>View list of checked in users</span>
+        </a>
+
+        <span class="text">{{ meeting.name }}</span>
+    </div>
+</div>

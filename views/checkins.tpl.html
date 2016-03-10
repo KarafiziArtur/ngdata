@@ -1,0 +1,20 @@
+<section class="card checkins">
+    <form name="myform" ng-submit="cc.addCheckin()">
+        <div class="textintro">
+            <h1>Check-in!</h1>
+            <p>Fill out this form to check-in or go
+                <a ui-sref="meetings">back to meetings</a>
+            </p>
+            <p class="error formerror" ng-show="message">{{ message }}</p>
+        </div>
+        <fieldset>
+            <input type="text" name="firstname" placeholder="First Name" ng-model="cc.user.firstname" ng-required="true">
+            <p class="error validationerror" ng-show="myform.firstname.$invalid && myform.firstname.$touched">First Name is required</p>
+            <input type="text" name="lastname" placeholder="Last Name" ng-model="cc.user.lastname" ng-required="true">
+            <p class="error validationerror" ng-show="myform.lastname.$invalid && myform.lastname.$touched">Last Name is required</p>
+            <input type="email" name="email" placeholder="Email" ng-model="cc.user.email" ng-required="true">
+            <p class="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched">Email must be a valid</p>
+        </fieldset>
+        <button type="submit" class="btn" ng-disabled="myform.$invalid">Check-in</button>
+    </form>
+</section>
